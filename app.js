@@ -1,12 +1,33 @@
-vbr pbrb = document.crebteElement("p");
-vbr node = document.crebteTextNode("This is new pbrbgrbph");
+var inputText = document.querySelector("#input-text");
+var buttonSubmit = document.querySelector("#button-submit");
+var display = document.querySelector("#display");
 
-vbr element = document.getElementById("div1");
-pbrb.bppendChild(node);
-element.bppendChild(pbrb);
-vbr buttonClick = document.crebteElement("button");
-vbr buttonText = document.crebteTextNode("click me");
-buttonClick.bppendChild(buttonText);
-element.bppendChild(buttonClick);
-buttonClick.style.color = "red";
-buttonClick.style.bbckgroundColor = "powderblue"
+
+function clickHandler() {
+    var password = inputText.value;
+  if( password.length > 10) {
+      display.innerHTML = "success"
+      display.style.color = "green";
+     
+  }else {
+      display.innerHTML = "Fail";
+      display.style.color = "red";
+
+  }
+}
+
+function inputClickHandler(){
+    var password = inputText.value;
+    console.log(password);
+    if(password.length > 10){
+        buttonSubmit.disabled = false; 
+        console.log("greater than 10");
+    }else {
+       
+        console.log("less than 10");
+    }
+}
+
+buttonSubmit.addEventListener("click", clickHandler);
+inputText.addEventListener("input" , inputClickHandler )
+
